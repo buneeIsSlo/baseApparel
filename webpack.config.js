@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = env => {
     let devType = env.production || false;
@@ -35,6 +36,14 @@ module.exports = env => {
                 {
                     test: /\.(svg|ico|webp|png|jpg|jpeg|gif)$/,
                     type: "asset/resource"
+                }, 
+
+                {
+                    test: /(\.css)$/,
+                    use: [
+                        devType ? MiniCssExtractPlugin.loader : "style-loader",
+                        {loader: "css-loader"}
+                    ]
                 }
             ]
         },
@@ -43,6 +52,10 @@ module.exports = env => {
             new HtmlWebpackPlugin({
                 filename: "index.html",
                 template: path.resolve(__dirname, "./src/index.html")
+            }),
+
+            new MiniCssExtractPlugin({
+                filename: "css/main.[contenthash].css"
             })
         ]
     };
