@@ -84,6 +84,7 @@ export default class Cursor {
                 this.positionToCursor(event);
                 this.followCursor();
                 
+                this.emailInput.classList.remove("error-styles")
                 this.heroImage.style.pointerEvents = "auto";
                 console.log("iss ouside");
             }
