@@ -48,6 +48,8 @@ img {
 }
 
 #error {
+    padding: 1em 1.5em;
+    color: var(--soft-red);
     display: none;
 }
 
@@ -139,6 +141,52 @@ img {
     background: none;
     background-color: hsl(0, 80%, 86%);
     box-shadow: 4.5px 4.4px 10px rgba(238, 140, 140, .5), 36px 35px 80px rgba(238, 140, 140, .5);
+}
+
+.error-styles {
+    outline: 3px solid var(--soft-red);
+    background-image: url("../images/icon-error.svg");
+    background-position: 80% 50%;
+    background-repeat: no-repeat;
+}
+
+.animation-Down {
+    animation: fadeInDown .4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes fadeInDown {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-1.5em);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-title {
+    color: var(--dark-grayish-red);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3.5rem;
+}
+
+.modal-confirm-btn {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: var(--fw-bold);
+    font-size: 1.2rem;
+    padding: .5em 2em;
+    color: var(--dark-grayish-red);
+    background: transparent;
+    border: none;
+    outline: 6px double var(--pastel-pink);
+    cursor: pointer;
+}
+
+.modal-confirm-btn:hover {
+    background-color: rgba(255, 78, 137, 0.267);
 }
 
 
@@ -305,5 +353,9 @@ img {
         transform: scale(4.5);
     }
 
+    .error-styles {
+        outline: 1px solid var(--soft-red);
+        background-position: 70% 50%;
+    }
 
 }
