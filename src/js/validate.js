@@ -48,7 +48,7 @@ export default class Validate {
             width:"550px",
             title: '<strong class="modal-title">Thank You!',
             text: "You should recive an email once we go live.",
-            padding: "4em",
+            padding: "4em 1em",
             color: "var(--desaturated-red)",
             background: "linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 92%))",
             showClass: {
