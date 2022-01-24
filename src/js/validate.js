@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 export default class Validate {
 
     constructor() {
@@ -8,11 +10,15 @@ export default class Validate {
     vars() {
         this.selectors = {
             emailInput: ".launch__email",
-            submitButton: ".launch__submit"
+            submitButton: ".launch__submit",
+            errorMsg: "error",
+            cursorOutline: ".outline"
         }
 
         this.emailInput = document.querySelector(this.selectors.emailInput);
         this.submitButton = document.querySelector(this.selectors.submitButton);
+        this.errorMsg = document.getElementById(`${this.selectors.errorMsg}`);
+        this.cursorOutline = document.querySelector(`${this.selectors.cursorOutline}`);
 
         this.emailRegExp = /\b[A-Z0-9._%+-]+@[A-Z0-9]+\.{1}[A-Z]{2,4}\b/i;
 
@@ -23,6 +29,12 @@ export default class Validate {
         this.submitButton.addEventListener("click", event => {
             event.preventDefault();
             this.validateEmail()
+
+            this.emailInput.addEventListener("click", () => {
+                this.emailInput.classList.remove("error-styles");
+                this.errorMsg.style.display = "none";
+                this.cursorOutline.style.outlineColor = "var(--pastel-pink)";
+            }, {once: true});
         });
     }
 
@@ -32,11 +44,31 @@ export default class Validate {
     }
 
     validationSuccessful() {
-        console.log("lettuce go!");
+        Swal.fire({
+            width:"550px",
+            title: '<strong class="modal-title">Thank You!',
+            text: "You should recive an email once we go live.",
+            padding: "4em",
+            color: "var(--desaturated-red)",
+            background: "linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 92%))",
+            showClass: {
+              popup: 'animation-Down'
+            },
+            buttonsStyling: false,
+            confirmButtonClass: "modal-confirm-btn",
+            allowOutsideClick: false
+          }).then(() => window.location.reload(true));
+
     }
 
     validationFailed() {
-        console.log("bruhhh");
+        if(this.emailInput.value !== "") {
+            this.cursorOutline.style.outlineColor = "var(--soft-red)";
+            this.emailInput.classList.add("error-styles");
+            this.errorMsg.style.display = "block";
+            this.errorMsg.classList.add("animation-Down");
+            this.emailInput.value = "";
+        }
     }
 
 }
