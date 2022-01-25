@@ -350,6 +350,7 @@ img {
         border-radius: 100px;
         background: transparent;
         position: absolute;
+        top: -50px;
         pointer-events: none;
         transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
     }
@@ -398,5 +399,19 @@ img {
 
     .launch__right {
         width: 50%;
+    }
+}
+
+@media (prefers-reduced-motion) {
+
+    .launch__left,
+    .launch__model-huge,
+    .animation-Down {
+        animation: none;
+    }
+
+    .outline,
+    .filter {
+        display: none;
     }
 }
