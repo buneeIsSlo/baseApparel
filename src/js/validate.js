@@ -31,9 +31,11 @@ export default class Validate {
             this.validateEmail()
 
             this.emailInput.addEventListener("click", () => {
-                this.emailInput.classList.remove("error-styles");
-                this.errorMsg.style.display = "none";
-                this.cursorOutline.style.outlineColor = "var(--pastel-pink)";
+                this.inputOriginalState();
+            }, {once: true});
+
+            this.emailInput.addEventListener("keydown", () => {
+                this.inputOriginalState();
             }, {once: true});
         });
     }
@@ -58,7 +60,6 @@ export default class Validate {
             confirmButtonClass: "modal-confirm-btn",
             allowOutsideClick: false
           }).then(() => window.location.reload(true));
-
     }
 
     validationFailed() {
@@ -69,6 +70,12 @@ export default class Validate {
             this.errorMsg.classList.add("animation-Down");
             this.emailInput.value = "";
         }
+    }
+
+    inputOriginalState() {
+        this.emailInput.classList.remove("error-styles");
+        this.errorMsg.style.display = "none";
+        this.cursorOutline.style.outlineColor = "var(--pastel-pink)";
     }
 
 }
