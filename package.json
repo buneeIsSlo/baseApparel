@@ -5,7 +5,8 @@
   "scripts": {
     "build:dev": "webpack --watch",
     "build:prod": "webpack --watch --env production",
-    "start:dev": "webpack serve --open"
+    "start:dev": "webpack serve --open",
+    "start:prod": "webpack serve --open --env production"
   },
   "keywords": [],
   "author": "bunee",
