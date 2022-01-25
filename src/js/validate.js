@@ -27,9 +27,14 @@ export default class Validate {
 
     setUpEvents() {
         this.submitButton.addEventListener("click", event => {
+            // Prevent reload upon submission
             event.preventDefault();
+
+            // Validate email
             this.validateEmail()
 
+            // Reset input to originial stat upon click or keydown
+            /* *Note: Both of these event listeners run just once to prevent memeory leaks */
             this.emailInput.addEventListener("click", () => {
                 this.inputOriginalState();
             }, {once: true});
@@ -40,11 +45,13 @@ export default class Validate {
         });
     }
 
+    /* Function to validate email */
     validateEmail() {
         let email = this.emailInput.value;
         return this.emailRegExp.test(email) ? this.validationSuccessful() : this.validationFailed();
     }
 
+    /* Function to display modal upon successful validation  */
     validationSuccessful() {
         Swal.fire({
             width:"550px",
@@ -62,6 +69,7 @@ export default class Validate {
           }).then(() => window.location.reload(true));
     }
 
+    /* Function to apply error styling to input upon unsuccessful validation */
     validationFailed() {
         if(this.emailInput.value !== "") {
             this.cursorOutline.style.outlineColor = "var(--soft-red)";
@@ -72,6 +80,7 @@ export default class Validate {
         }
     }
 
+    /* Function to reset email-input styles */
     inputOriginalState() {
         this.emailInput.classList.remove("error-styles");
         this.errorMsg.style.display = "none";
