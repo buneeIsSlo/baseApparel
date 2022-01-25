@@ -222,37 +222,29 @@ img {
 @media (min-width: 585px) {
 
     .launch__model {
-        mix-blend-mode: difference;
+        filter: hue-rotate(30deg);
     }
+
 
     .launch__model-wrapper:before {
         content: url("../images/hero-mobile.jpg");
         position: absolute;
-        top: 95px;
-        left: 80px;
+        top: 103px;
+        left: 100px;
         z-index: -1;
-        opacity: .9;
-        filter: hue-rotate(320deg);
+        filter: hue-rotate(330deg);
     }
 
     .launch__model-wrapper:after {
         content: url("../images/hero-mobile.jpg");
         position: absolute;
-        top: 95px;
-        right: 90px;
-        z-index: -1;
-        opacity: .9;
-        filter: hue-rotate(40deg);
+        top: 103px;
+        right: 100px;
     }
 
 
     .launch__soon {
         font-size: 4rem;
-    }
-
-    .launch__soon,
-    .launch__info {
-        text-align: left;
     }
 
     .launch__form {
@@ -287,13 +279,19 @@ img {
     }
 
     .launch__left {
-        width: 50%;
-        padding: 4rem 4rem 4rem 12rem;
+        width: 35%;
+        padding: 4rem 4rem 4rem 6rem;
     }
 
     .launch__logo {
         width: 35%;
         padding: 0;
+    }
+
+
+    .launch__soon,
+    .launch__info {
+        text-align: left;
     }
 
     .launch__soon {
@@ -358,4 +356,16 @@ img {
         background-position: 70% 50%;
     }
 
+}
+
+@media (min-width: 1200px) {
+
+    .launch__left {
+        width: 35%;
+        padding: 4rem 4rem 4rem 14rem;
+    }
+
+    .launch__right {
+        width: 50%;
+    }
 }
