@@ -761,7 +761,7 @@ img {
         background-color: #fff;
         mix-blend-mode: difference;
         filter: contrast(30%) invert(15%);
-        transform: scale(4.5);
+        transform: scale(4.2);
     }
 
 
