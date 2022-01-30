@@ -50,6 +50,7 @@ img {
 #error {
     padding: 1em 1.5em;
     color: var(--soft-red);
+    position: fixed;
     display: none;
 }
 
@@ -286,7 +287,6 @@ img {
         background: url("../images/bg-pattern-desktop.svg");
         background-size: 70rem;
         background-position: -30% 80%;
-        overflow: hidden;
     }
 
     .launch__model-wrapper {
@@ -352,6 +352,7 @@ img {
     }
 
     .launch__model-huge {
+        position: fixed;
         animation: scaleIn 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
 
@@ -361,7 +362,7 @@ img {
         height: 40px;
         border-radius: 100px;
         background: transparent;
-        position: absolute;
+        position: fixed;
         top: -50px;
         pointer-events: none;
         transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
